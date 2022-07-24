@@ -1,3 +1,13 @@
+/*
+------- Pin Connection ----------- Receiving End-----------------
+M0 --------- 5V
+M1 --------- GND
+RX --------- TX
+TX --------- RX
+VCC -------- 5V
+GND -------- GND
+
+*/
 int pin = 4;
 void setup() {
   Serial.begin(9600);
@@ -12,8 +22,11 @@ void loop() {
     String data = Serial.readString();
     if (data == "LED") {
       digitalWrite(4, HIGH);
-      delay(100);
+      delay(1000);
       Serial.println("Light on");
+      digitalWrite(4, LOW);
+      delay(1000);
+      Serial.println("Light off");
 
     }
 
